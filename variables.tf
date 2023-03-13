@@ -9,7 +9,7 @@ variable "AVAILABILITY_ZONE" {
 
 # Instâncias EC2
 variable "AMI_HASH" {
-  default = ""
+  default = "ami-0557a15b87f6559cf"
 }
 
 variable "KEY_NAME" {

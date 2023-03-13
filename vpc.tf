@@ -6,7 +6,7 @@ resource "aws_vpc" "vpc" {
   enable_dns_hostnames = var.DNS_HOSTNAMES
 
   tags = {
-    Name = format("vpc", var.PROJECT_NAME)
+    Name = format("vpc-%s", var.PROJECT_NAME)
   }
 }
 
@@ -18,7 +18,7 @@ resource "aws_subnet" "public_subnet" {
   availability_zone       = var.AVAILABILITY_ZONE
 
   tags = {
-    Name = format("public-subnet", var.PROJECT_NAME)
+    Name = format("public-subnet-%s", var.PROJECT_NAME)
   }
 }
 
@@ -29,7 +29,7 @@ resource "aws_subnet" "private_subnet" {
   availability_zone       = var.AVAILABILITY_ZONE
 
   tags = {
-    Name = format("private-subnet", var.PROJECT_NAME)
+    Name = format("private-subnet-%s", var.PROJECT_NAME)
   }
 }
 
@@ -37,7 +37,7 @@ resource "aws_subnet" "private_subnet" {
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.vpc.id
   tags = {
-    Name = format("internet-gateway", var.PROJECT_NAME)
+    Name = format("internet-gateway-%s", var.PROJECT_NAME)
   }
 }
 
@@ -45,8 +45,14 @@ resource "aws_internet_gateway" "igw" {
 resource "aws_route_table" "rtb" {
   vpc_id = aws_vpc.vpc.id
   tags = {
-    Name = format("route-table", var.PROJECT_NAME)
+    Name = format("route-table-%s", var.PROJECT_NAME)
   }
+}
+
+# Definição de Route Table padrão
+resource "aws_main_route_table_association" "rtb-assn" {
+  vpc_id              = aws_vpc.vpc.id
+  route_table_id      = aws_route_table.rtb.id
 }
 
 # Rota para o Internet Gateway

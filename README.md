@@ -5,7 +5,9 @@ Script terraform para provisionamento da infraestrutura do projeto na cloud AWS
 
 Antes de começar a executar o terraform é necessário colocar as credenciais da aws na máquina de trabalho. Para os passos a seguir, é necessário ter o AWS CLI instalado, assim como o terraform.
 
-As credenciais se encontra na tela do vocareum. Ao clicar no botão "Account Details", vai abrir uma caixa mostrando as credenciais do AWS CLI.
+As credenciais se encontra na tela de start do laboratório. Inicialmente inicie o laboratório. Ao clicar no botão "AWS Details", abrirá uma tela ao lado do terminal escrito "Cloud Access" e logo abaixo, "AWS CLI:" com um botão ao lado. Clique no botão botão, e aparecerá as credenciais da sessão e então as copie. 
+
+Lembre-se que cada sessão dura 4 horas, e é necessário renovar a seesão e as credenciais para continuar usando após esse período.
 
 Ao copiar as credenciais, crie o arquivo "credencials" no diretório ~/.aws, resultando assim:
 

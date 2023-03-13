@@ -10,7 +10,7 @@ resource "aws_instance" "web_server" {
     aws_default_security_group.default.id
   ]
 
-  user_data = file("configuracoes/configure.sh")
+  # user_data = file("configuracoes/configure-server.sh")
 
   tags = {
     Name = "web-server"
@@ -38,7 +38,7 @@ resource "aws_instance" "processamento" {
     aws_default_security_group.default.id
   ]
 
-  user_data = file("configuracoes/configure-jupyter.sh")
+  # user_data = file("configuracoes/configure-processamento.sh")
 
   tags = {
     Name = "processamento"
@@ -66,7 +66,7 @@ resource "aws_instance" "database" {
     aws_default_security_group.default.id
   ]
 
-  user_data = file("configuracoes/configure-database.sh")
+  # user_data = file("configuracoes/configure-database.sh")
 
   tags = {
     Name = "database"

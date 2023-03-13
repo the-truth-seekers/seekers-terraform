@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/terraform,terragrunt,visualstudiocode,jetbrains+all
-# Edit at https://www.toptal.com/developers/gitignore?templates=terraform,terragrunt,visualstudiocode,jetbrains+all
+# Created by https://www.toptal.com/developers/gitignore/api/terraform,terragrunt,jetbrains+all,visualstudiocode,ssh
+# Edit at https://www.toptal.com/developers/gitignore?templates=terraform,terragrunt,jetbrains+all,visualstudiocode,ssh
 
 ### JetBrains+all ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
@@ -89,6 +89,15 @@ fabric.properties
 !.idea/codeStyles
 !.idea/runConfigurations
 
+### SSH ###
+**/.ssh/id_*
+**/.ssh/*_id_*
+**/.ssh/known_hosts
+
+### Keys ###
+**/*.pem
+**/*.ppk
+
 ### Terraform ###
 # Local .terraform directories
 **/.terraform/*
@@ -152,4 +161,4 @@ terragrunt-debug.tfvars.json
 .history
 .ionide
 
-# End of https://www.toptal.com/developers/gitignore/api/terraform,terragrunt,visualstudiocode,jetbrains+all
+# End of https://www.toptal.com/developers/gitignore/api/terraform,terragrunt,jetbrains+all,visualstudiocode,ssh
