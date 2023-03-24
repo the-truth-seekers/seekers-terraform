@@ -53,31 +53,3 @@ resource "aws_eip" "processamento" {
     Name = "processamento"
   }
 }
-
-# DATABASE
-resource "aws_instance" "database" {
-  ami           = var.AMI_HASH
-  instance_type = var.INSTANCE_TYPE_MICRO
-  key_name      = var.KEY_NAME
-  subnet_id     = aws_subnet.private_subnet.id
-  vpc_security_group_ids = [
-    aws_security_group.database.id,
-    aws_security_group.ssh.id,
-    aws_default_security_group.default.id
-  ]
-
-  # user_data = file("configuracoes/configure-database.sh")
-
-  tags = {
-    Name = "database"
-  }
-}
-
-resource "aws_eip" "database" {
-  instance = aws_instance.database.id
-  vpc      = true
-
-  tags = {
-    Name = "database"
-  }
-}
