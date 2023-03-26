@@ -51,8 +51,8 @@ resource "aws_route_table" "rtb" {
 
 # Definição de Route Table padrão
 resource "aws_main_route_table_association" "rtb-assn" {
-  vpc_id              = aws_vpc.vpc.id
-  route_table_id      = aws_route_table.rtb.id
+  vpc_id         = aws_vpc.vpc.id
+  route_table_id = aws_route_table.rtb.id
 }
 
 # Rota para o Internet Gateway
