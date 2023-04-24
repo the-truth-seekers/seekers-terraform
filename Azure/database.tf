@@ -1,6 +1,6 @@
 resource "azurerm_resource_group" "rg_database" {
   name     = format("azrg-%s", var.PROJECT_NAME)
-  location = "West Europe"
+  location = var.AZ_REGION
 }
 
 # resource "azurerm_storage_account" "sa_database" {
