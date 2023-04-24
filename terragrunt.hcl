@@ -31,17 +31,21 @@ terraform {
 
   extra_arguments "custom_vars" {
 
-    arguments = [
-      "-var-file=terraform.tfvars"
-    ]
+    # arguments = [
+    #   "-var-file=terraform.tfvars"
+    # ]
 
     commands = [
       "apply",
       "import",
-      "init",
       "plan",
       "push",
       "refresh",
     ]
+  }
+
+  extra_arguments "init" {
+    // Use a flag '-upgrade' para atualizar os plugins Terraform
+    commands = ["init", "-upgrade"]
   }
 }
