@@ -1,0 +1,60 @@
+name: Terraform Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      aws_access_key_id:
+        description: AWS - Access Key
+        required: true
+      aws_secret_access_key:
+        description: AWS - Secret Access Key
+        required: true
+      aws_session_token:
+        description: AWS - Session Token
+        required: true
+
+env:
+  AWS_ACCESS_KEY_ID: ${{ github.event.inputs.aws_access_key_id }}
+  AWS_SECRET_ACCESS_KEY: ${{ github.event.inputs.aws_secret_access_key }}
+  AWS_SESSION_TOKEN: ${{ github.event.inputs.aws_session_token }}
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  terraform:
+    name: "Terraform"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Login Azure Anderson
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      # - name: Change Terraform Backend
+      #   run: |
+      #     sed -i "s/bucket.*/bucket = \"${{ env.AUTOR }}-tfstate\"/" main.tf
+      #     sed -i "s/key.*/key = \"${{ env.AUTOR }}.tfstate\"/" main.tf
+
+      - name: Terragrunt init
+        run: terragrunt init
+
+      - name: Terragrunt plan
+        run: terragrunt run-all plan -var="AZURE_SERVER_DATABASE_USER=${{ secrets.AZURE_SERVER_DATABASE_USER }}" -var="AZURE_SERVER_DATABASE_PASSWORD=${{ secrets.AZURE_SERVER_DATABASE_PASSWORD }}"
+
+      - name: Terragrunt apply
+        if: github.ref == 'refs/heads/main'
+        run: terragrunt run-all apply -auto-approve -input=false -var="AZURE_SERVER_DATABASE_USER=${{ secrets.AZURE_SERVER_DATABASE_USER }}" -var="AZURE_SERVER_DATABASE_PASSWORD=${{ secrets.AZURE_SERVER_DATABASE_PASSWORD }}"
+
+      - name: Azure CLI script
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az logout
+            az cache purge
+            az account clear
