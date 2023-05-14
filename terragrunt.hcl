@@ -32,7 +32,7 @@ terraform {
   extra_arguments "custom_vars" {
 
     # arguments = [
-    #   "-var-file=terraform.tfvars"
+    #   "-var-file=${get_repo_root()}/local.tfvars"
     # ]
 
     commands = [
