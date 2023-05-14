@@ -22,11 +22,14 @@ resource "azurerm_mssql_server" "server_database" {
 }
 
 resource "azurerm_mssql_database" "mssql_database" {
-  name           = format("azdb-%s", var.PROJECT_NAME)
-  server_id      = azurerm_mssql_server.server_database.id
-  collation      = "SQL_Latin1_General_CP1_CI_AS"
-  max_size_gb    = 1
-  read_scale     = false
-  sku_name       = "GP_S_Gen5_1"
-  zone_redundant = false
+  name                        = format("azdb-%s", var.PROJECT_NAME)
+  server_id                   = azurerm_mssql_server.server_database.id
+  collation                   = "SQL_Latin1_General_CP1_CI_AS"
+  max_size_gb                 = 1
+  read_scale                  = false
+  sku_name                    = "GP_S_Gen5_1"
+  zone_redundant              = false
+  min_capacity                = 0.5
+  auto_pause_delay_in_minutes = 60
+  storage_account_type        = "Local"
 }
