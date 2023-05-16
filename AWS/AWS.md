@@ -30,7 +30,6 @@ No modules.
 | [aws_route_table.rtb](https://registry.terraform.io/providers/hashicorp/aws/4.67.0/docs/resources/route_table) | resource |
 | [aws_route_table_association.public_association](https://registry.terraform.io/providers/hashicorp/aws/4.67.0/docs/resources/route_table_association) | resource |
 | [aws_s3_bucket.bucket_project](https://registry.terraform.io/providers/hashicorp/aws/4.67.0/docs/resources/s3_bucket) | resource |
-| [aws_s3_bucket_acl.bucket_acl_project](https://registry.terraform.io/providers/hashicorp/aws/4.67.0/docs/resources/s3_bucket_acl) | resource |
 | [aws_s3_bucket_public_access_block.bucket_pab_project](https://registry.terraform.io/providers/hashicorp/aws/4.67.0/docs/resources/s3_bucket_public_access_block) | resource |
 | [aws_security_group.database](https://registry.terraform.io/providers/hashicorp/aws/4.67.0/docs/resources/security_group) | resource |
 | [aws_security_group.http-https](https://registry.terraform.io/providers/hashicorp/aws/4.67.0/docs/resources/security_group) | resource |

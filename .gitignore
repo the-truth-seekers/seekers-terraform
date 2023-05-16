@@ -95,6 +95,7 @@ fabric.properties
 **/.ssh/known_hosts
 
 ### Keys ###
+chaves/
 **/*.pem
 **/*.ppk
 
