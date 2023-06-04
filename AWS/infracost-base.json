@@ -1,0 +1,416 @@
+{
+    "version": "0.2",
+    "metadata": {
+        "infracostCommand": "breakdown",
+        "vcsBranch": "main",
+        "vcsCommitSha": "2aa26604ff99fdbacb21667b0b541a6ae66feeab",
+        "vcsCommitAuthorName": "Kaio Silva Baleeiro de Jesus",
+        "vcsCommitAuthorEmail": "kaio.jesus@bandtec.com.br",
+        "vcsCommitTimestamp": "2023-05-16T03:13:17Z",
+        "vcsCommitMessage": "fix: comentando acl do bucket",
+        "vcsRepositoryUrl": "https://github.com/the-truth-seekers/seekers-terraform.git"
+    },
+    "currency": "USD",
+    "projects": [
+        {
+            "name": "seekers-tf-aws",
+            "metadata": {
+                "path": ".",
+                "type": "terragrunt_dir",
+                "vcsSubPath": "AWS"
+            },
+            "pastBreakdown": {
+                "resources": [
+                    {
+                        "name": "aws_instance.processamento",
+                        "tags": {
+                            "Name": "processamento"
+                        },
+                        "metadata": {
+                            "calls": [
+                                {
+                                    "blockName": "aws_instance.processamento",
+                                    "filename": ".infracost\\.terragrunt-cache\\8LQ19j4kttKLpO7qNEUHxDgMVl8\\Gs-tOVriKmnnPLpRdqYBsUkwS0s\\ec2.tf"
+                                }
+                            ],
+                            "filename": ".infracost\\.terragrunt-cache\\8LQ19j4kttKLpO7qNEUHxDgMVl8\\Gs-tOVriKmnnPLpRdqYBsUkwS0s\\ec2.tf"
+                        },
+                        "hourlyCost": "0.0938958904109589",
+                        "monthlyCost": "68.544",
+                        "costComponents": [
+                            {
+                                "name": "Instance usage (Linux/UNIX, on-demand, t2.large)",
+                                "unit": "hours",
+                                "hourlyQuantity": "1",
+                                "monthlyQuantity": "730",
+                                "price": "0.0928",
+                                "hourlyCost": "0.0928",
+                                "monthlyCost": "67.744"
+                            }
+                        ],
+                        "subresources": [
+                            {
+                                "name": "root_block_device",
+                                "metadata": {},
+                                "hourlyCost": "0.0010958904109589",
+                                "monthlyCost": "0.8",
+                                "costComponents": [
+                                    {
+                                        "name": "Storage (general purpose SSD, gp2)",
+                                        "unit": "GB",
+                                        "hourlyQuantity": "0.010958904109589",
+                                        "monthlyQuantity": "8",
+                                        "price": "0.1",
+                                        "hourlyCost": "0.0010958904109589",
+                                        "monthlyCost": "0.8"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "aws_instance.web_server",
+                        "tags": {
+                            "Name": "web-server"
+                        },
+                        "metadata": {
+                            "calls": [
+                                {
+                                    "blockName": "aws_instance.web_server",
+                                    "filename": ".infracost\\.terragrunt-cache\\8LQ19j4kttKLpO7qNEUHxDgMVl8\\Gs-tOVriKmnnPLpRdqYBsUkwS0s\\ec2.tf"
+                                }
+                            ],
+                            "filename": ".infracost\\.terragrunt-cache\\8LQ19j4kttKLpO7qNEUHxDgMVl8\\Gs-tOVriKmnnPLpRdqYBsUkwS0s\\ec2.tf"
+                        },
+                        "hourlyCost": "0.0126958904109589",
+                        "monthlyCost": "9.268",
+                        "costComponents": [
+                            {
+                                "name": "Instance usage (Linux/UNIX, on-demand, t2.micro)",
+                                "unit": "hours",
+                                "hourlyQuantity": "1",
+                                "monthlyQuantity": "730",
+                                "price": "0.0116",
+                                "hourlyCost": "0.0116",
+                                "monthlyCost": "8.468"
+                            }
+                        ],
+                        "subresources": [
+                            {
+                                "name": "root_block_device",
+                                "metadata": {},
+                                "hourlyCost": "0.0010958904109589",
+                                "monthlyCost": "0.8",
+                                "costComponents": [
+                                    {
+                                        "name": "Storage (general purpose SSD, gp2)",
+                                        "unit": "GB",
+                                        "hourlyQuantity": "0.010958904109589",
+                                        "monthlyQuantity": "8",
+                                        "price": "0.1",
+                                        "hourlyCost": "0.0010958904109589",
+                                        "monthlyCost": "0.8"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "aws_s3_bucket.bucket_project",
+                        "metadata": {
+                            "calls": [
+                                {
+                                    "blockName": "aws_s3_bucket.bucket_project",
+                                    "filename": ".infracost\\.terragrunt-cache\\8LQ19j4kttKLpO7qNEUHxDgMVl8\\Gs-tOVriKmnnPLpRdqYBsUkwS0s\\s3.tf"
+                                }
+                            ],
+                            "filename": ".infracost\\.terragrunt-cache\\8LQ19j4kttKLpO7qNEUHxDgMVl8\\Gs-tOVriKmnnPLpRdqYBsUkwS0s\\s3.tf"
+                        },
+                        "hourlyCost": null,
+                        "monthlyCost": null,
+                        "subresources": [
+                            {
+                                "name": "Standard",
+                                "metadata": {},
+                                "hourlyCost": null,
+                                "monthlyCost": null,
+                                "costComponents": [
+                                    {
+                                        "name": "Storage",
+                                        "unit": "GB",
+                                        "hourlyQuantity": null,
+                                        "monthlyQuantity": null,
+                                        "price": "0.023",
+                                        "hourlyCost": null,
+                                        "monthlyCost": null
+                                    },
+                                    {
+                                        "name": "PUT, COPY, POST, LIST requests",
+                                        "unit": "1k requests",
+                                        "hourlyQuantity": null,
+                                        "monthlyQuantity": null,
+                                        "price": "0.005",
+                                        "hourlyCost": null,
+                                        "monthlyCost": null
+                                    },
+                                    {
+                                        "name": "GET, SELECT, and all other requests",
+                                        "unit": "1k requests",
+                                        "hourlyQuantity": null,
+                                        "monthlyQuantity": null,
+                                        "price": "0.0004",
+                                        "hourlyCost": null,
+                                        "monthlyCost": null
+                                    },
+                                    {
+                                        "name": "Select data scanned",
+                                        "unit": "GB",
+                                        "hourlyQuantity": null,
+                                        "monthlyQuantity": null,
+                                        "price": "0.002",
+                                        "hourlyCost": null,
+                                        "monthlyCost": null
+                                    },
+                                    {
+                                        "name": "Select data returned",
+                                        "unit": "GB",
+                                        "hourlyQuantity": null,
+                                        "monthlyQuantity": null,
+                                        "price": "0.0007",
+                                        "hourlyCost": null,
+                                        "monthlyCost": null
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "totalHourlyCost": "0.1065917808219178",
+                "totalMonthlyCost": "77.812"
+            },
+            "breakdown": {
+                "resources": [
+                    {
+                        "name": "aws_instance.processamento",
+                        "tags": {
+                            "Name": "processamento"
+                        },
+                        "metadata": {
+                            "calls": [
+                                {
+                                    "blockName": "aws_instance.processamento",
+                                    "filename": ".infracost\\.terragrunt-cache\\8LQ19j4kttKLpO7qNEUHxDgMVl8\\Gs-tOVriKmnnPLpRdqYBsUkwS0s\\ec2.tf"
+                                }
+                            ],
+                            "filename": ".infracost\\.terragrunt-cache\\8LQ19j4kttKLpO7qNEUHxDgMVl8\\Gs-tOVriKmnnPLpRdqYBsUkwS0s\\ec2.tf"
+                        },
+                        "hourlyCost": "0.0938958904109589",
+                        "monthlyCost": "68.544",
+                        "costComponents": [
+                            {
+                                "name": "Instance usage (Linux/UNIX, on-demand, t2.large)",
+                                "unit": "hours",
+                                "hourlyQuantity": "1",
+                                "monthlyQuantity": "730",
+                                "price": "0.0928",
+                                "hourlyCost": "0.0928",
+                                "monthlyCost": "67.744"
+                            }
+                        ],
+                        "subresources": [
+                            {
+                                "name": "root_block_device",
+                                "metadata": {},
+                                "hourlyCost": "0.0010958904109589",
+                                "monthlyCost": "0.8",
+                                "costComponents": [
+                                    {
+                                        "name": "Storage (general purpose SSD, gp2)",
+                                        "unit": "GB",
+                                        "hourlyQuantity": "0.010958904109589",
+                                        "monthlyQuantity": "8",
+                                        "price": "0.1",
+                                        "hourlyCost": "0.0010958904109589",
+                                        "monthlyCost": "0.8"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "aws_instance.web_server",
+                        "tags": {
+                            "Name": "web-server"
+                        },
+                        "metadata": {
+                            "calls": [
+                                {
+                                    "blockName": "aws_instance.web_server",
+                                    "filename": ".infracost\\.terragrunt-cache\\8LQ19j4kttKLpO7qNEUHxDgMVl8\\Gs-tOVriKmnnPLpRdqYBsUkwS0s\\ec2.tf"
+                                }
+                            ],
+                            "filename": ".infracost\\.terragrunt-cache\\8LQ19j4kttKLpO7qNEUHxDgMVl8\\Gs-tOVriKmnnPLpRdqYBsUkwS0s\\ec2.tf"
+                        },
+                        "hourlyCost": "0.0126958904109589",
+                        "monthlyCost": "9.268",
+                        "costComponents": [
+                            {
+                                "name": "Instance usage (Linux/UNIX, on-demand, t2.micro)",
+                                "unit": "hours",
+                                "hourlyQuantity": "1",
+                                "monthlyQuantity": "730",
+                                "price": "0.0116",
+                                "hourlyCost": "0.0116",
+                                "monthlyCost": "8.468"
+                            }
+                        ],
+                        "subresources": [
+                            {
+                                "name": "root_block_device",
+                                "metadata": {},
+                                "hourlyCost": "0.0010958904109589",
+                                "monthlyCost": "0.8",
+                                "costComponents": [
+                                    {
+                                        "name": "Storage (general purpose SSD, gp2)",
+                                        "unit": "GB",
+                                        "hourlyQuantity": "0.010958904109589",
+                                        "monthlyQuantity": "8",
+                                        "price": "0.1",
+                                        "hourlyCost": "0.0010958904109589",
+                                        "monthlyCost": "0.8"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "aws_s3_bucket.bucket_project",
+                        "metadata": {
+                            "calls": [
+                                {
+                                    "blockName": "aws_s3_bucket.bucket_project",
+                                    "filename": ".infracost\\.terragrunt-cache\\8LQ19j4kttKLpO7qNEUHxDgMVl8\\Gs-tOVriKmnnPLpRdqYBsUkwS0s\\s3.tf"
+                                }
+                            ],
+                            "filename": ".infracost\\.terragrunt-cache\\8LQ19j4kttKLpO7qNEUHxDgMVl8\\Gs-tOVriKmnnPLpRdqYBsUkwS0s\\s3.tf"
+                        },
+                        "hourlyCost": null,
+                        "monthlyCost": null,
+                        "subresources": [
+                            {
+                                "name": "Standard",
+                                "metadata": {},
+                                "hourlyCost": null,
+                                "monthlyCost": null,
+                                "costComponents": [
+                                    {
+                                        "name": "Storage",
+                                        "unit": "GB",
+                                        "hourlyQuantity": null,
+                                        "monthlyQuantity": null,
+                                        "price": "0.023",
+                                        "hourlyCost": null,
+                                        "monthlyCost": null
+                                    },
+                                    {
+                                        "name": "PUT, COPY, POST, LIST requests",
+                                        "unit": "1k requests",
+                                        "hourlyQuantity": null,
+                                        "monthlyQuantity": null,
+                                        "price": "0.005",
+                                        "hourlyCost": null,
+                                        "monthlyCost": null
+                                    },
+                                    {
+                                        "name": "GET, SELECT, and all other requests",
+                                        "unit": "1k requests",
+                                        "hourlyQuantity": null,
+                                        "monthlyQuantity": null,
+                                        "price": "0.0004",
+                                        "hourlyCost": null,
+                                        "monthlyCost": null
+                                    },
+                                    {
+                                        "name": "Select data scanned",
+                                        "unit": "GB",
+                                        "hourlyQuantity": null,
+                                        "monthlyQuantity": null,
+                                        "price": "0.002",
+                                        "hourlyCost": null,
+                                        "monthlyCost": null
+                                    },
+                                    {
+                                        "name": "Select data returned",
+                                        "unit": "GB",
+                                        "hourlyQuantity": null,
+                                        "monthlyQuantity": null,
+                                        "price": "0.0007",
+                                        "hourlyCost": null,
+                                        "monthlyCost": null
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "totalHourlyCost": "0.1065917808219178",
+                "totalMonthlyCost": "77.812"
+            },
+            "diff": {
+                "resources": [],
+                "totalHourlyCost": "0",
+                "totalMonthlyCost": "0"
+            },
+            "summary": {
+                "totalDetectedResources": 18,
+                "totalSupportedResources": 3,
+                "totalUnsupportedResources": 0,
+                "totalUsageBasedResources": 3,
+                "totalNoPriceResources": 15,
+                "unsupportedResourceCounts": {},
+                "noPriceResourceCounts": {
+                    "aws_default_security_group": 1,
+                    "aws_eip": 2,
+                    "aws_internet_gateway": 1,
+                    "aws_main_route_table_association": 1,
+                    "aws_route": 1,
+                    "aws_route_table": 1,
+                    "aws_route_table_association": 1,
+                    "aws_s3_bucket_public_access_block": 1,
+                    "aws_security_group": 3,
+                    "aws_subnet": 2,
+                    "aws_vpc": 1
+                }
+            }
+        }
+    ],
+    "totalHourlyCost": "0.1065917808219178",
+    "totalMonthlyCost": "77.812",
+    "pastTotalHourlyCost": "0.1065917808219178",
+    "pastTotalMonthlyCost": "77.812",
+    "diffTotalHourlyCost": "0",
+    "diffTotalMonthlyCost": "0",
+    "timeGenerated": "2023-06-04T03:47:28.7730957Z",
+    "summary": {
+        "totalDetectedResources": 18,
+        "totalSupportedResources": 3,
+        "totalUnsupportedResources": 0,
+        "totalUsageBasedResources": 3,
+        "totalNoPriceResources": 15,
+        "unsupportedResourceCounts": {},
+        "noPriceResourceCounts": {
+            "aws_default_security_group": 1,
+            "aws_eip": 2,
+            "aws_internet_gateway": 1,
+            "aws_main_route_table_association": 1,
+            "aws_route": 1,
+            "aws_route_table": 1,
+            "aws_route_table_association": 1,
+            "aws_s3_bucket_public_access_block": 1,
+            "aws_security_group": 3,
+            "aws_subnet": 2,
+            "aws_vpc": 1
+        }
+    }
+}

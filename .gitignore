@@ -163,3 +163,6 @@ terragrunt-debug.tfvars.json
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/terraform,terragrunt,jetbrains+all,visualstudiocode,ssh
+
+# INFRACOST
+**/.infracost/*

@@ -1,0 +1,176 @@
+{
+    "version": "0.2",
+    "metadata": {
+        "infracostCommand": "breakdown",
+        "vcsBranch": "main",
+        "vcsCommitSha": "2aa26604ff99fdbacb21667b0b541a6ae66feeab",
+        "vcsCommitAuthorName": "Kaio Silva Baleeiro de Jesus",
+        "vcsCommitAuthorEmail": "kaio.jesus@bandtec.com.br",
+        "vcsCommitTimestamp": "2023-05-16T03:13:17Z",
+        "vcsCommitMessage": "fix: comentando acl do bucket",
+        "vcsRepositoryUrl": "https://github.com/the-truth-seekers/seekers-terraform.git"
+    },
+    "currency": "USD",
+    "projects": [
+        {
+            "name": "seekers-tf-azure",
+            "metadata": {
+                "path": ".",
+                "type": "terragrunt_dir",
+                "vcsSubPath": "Azure"
+            },
+            "pastBreakdown": {
+                "resources": [
+                    {
+                        "name": "azurerm_mssql_database.mssql_database",
+                        "metadata": {
+                            "calls": [
+                                {
+                                    "blockName": "azurerm_mssql_database.mssql_database",
+                                    "filename": ".infracost\\.terragrunt-cache\\b4NuLGWX_AZd6uqXcSCWbyrk8k0\\LIJ6ELYUlLK56dOtFKcfErsJKvk\\database.tf"
+                                }
+                            ],
+                            "filename": ".infracost\\.terragrunt-cache\\b4NuLGWX_AZd6uqXcSCWbyrk8k0\\LIJ6ELYUlLK56dOtFKcfErsJKvk\\database.tf"
+                        },
+                        "hourlyCost": "0.000157534246575339",
+                        "monthlyCost": "0.115",
+                        "costComponents": [
+                            {
+                                "name": "Compute (serverless, GP_S_Gen5_1)",
+                                "unit": "vCore-hours",
+                                "hourlyQuantity": null,
+                                "monthlyQuantity": null,
+                                "price": "0.521758",
+                                "hourlyCost": null,
+                                "monthlyCost": null
+                            },
+                            {
+                                "name": "Storage",
+                                "unit": "GB",
+                                "hourlyQuantity": "0.0013698630136986",
+                                "monthlyQuantity": "1",
+                                "price": "0.115",
+                                "hourlyCost": "0.000157534246575339",
+                                "monthlyCost": "0.115"
+                            },
+                            {
+                                "name": "Long-term retention (LRS)",
+                                "unit": "GB",
+                                "hourlyQuantity": null,
+                                "monthlyQuantity": null,
+                                "price": "0.025",
+                                "hourlyCost": null,
+                                "monthlyCost": null
+                            },
+                            {
+                                "name": "PITR backup storage (LRS)",
+                                "unit": "GB",
+                                "hourlyQuantity": null,
+                                "monthlyQuantity": null,
+                                "price": "0.1",
+                                "hourlyCost": null,
+                                "monthlyCost": null
+                            }
+                        ]
+                    }
+                ],
+                "totalHourlyCost": "0.000157534246575339",
+                "totalMonthlyCost": "0.115"
+            },
+            "breakdown": {
+                "resources": [
+                    {
+                        "name": "azurerm_mssql_database.mssql_database",
+                        "metadata": {
+                            "calls": [
+                                {
+                                    "blockName": "azurerm_mssql_database.mssql_database",
+                                    "filename": ".infracost\\.terragrunt-cache\\b4NuLGWX_AZd6uqXcSCWbyrk8k0\\LIJ6ELYUlLK56dOtFKcfErsJKvk\\database.tf"
+                                }
+                            ],
+                            "filename": ".infracost\\.terragrunt-cache\\b4NuLGWX_AZd6uqXcSCWbyrk8k0\\LIJ6ELYUlLK56dOtFKcfErsJKvk\\database.tf"
+                        },
+                        "hourlyCost": "0.000157534246575339",
+                        "monthlyCost": "0.115",
+                        "costComponents": [
+                            {
+                                "name": "Compute (serverless, GP_S_Gen5_1)",
+                                "unit": "vCore-hours",
+                                "hourlyQuantity": null,
+                                "monthlyQuantity": null,
+                                "price": "0.521758",
+                                "hourlyCost": null,
+                                "monthlyCost": null
+                            },
+                            {
+                                "name": "Storage",
+                                "unit": "GB",
+                                "hourlyQuantity": "0.0013698630136986",
+                                "monthlyQuantity": "1",
+                                "price": "0.115",
+                                "hourlyCost": "0.000157534246575339",
+                                "monthlyCost": "0.115"
+                            },
+                            {
+                                "name": "Long-term retention (LRS)",
+                                "unit": "GB",
+                                "hourlyQuantity": null,
+                                "monthlyQuantity": null,
+                                "price": "0.025",
+                                "hourlyCost": null,
+                                "monthlyCost": null
+                            },
+                            {
+                                "name": "PITR backup storage (LRS)",
+                                "unit": "GB",
+                                "hourlyQuantity": null,
+                                "monthlyQuantity": null,
+                                "price": "0.1",
+                                "hourlyCost": null,
+                                "monthlyCost": null
+                            }
+                        ]
+                    }
+                ],
+                "totalHourlyCost": "0.000157534246575339",
+                "totalMonthlyCost": "0.115"
+            },
+            "diff": {
+                "resources": [],
+                "totalHourlyCost": "0",
+                "totalMonthlyCost": "0"
+            },
+            "summary": {
+                "totalDetectedResources": 3,
+                "totalSupportedResources": 1,
+                "totalUnsupportedResources": 0,
+                "totalUsageBasedResources": 1,
+                "totalNoPriceResources": 2,
+                "unsupportedResourceCounts": {},
+                "noPriceResourceCounts": {
+                    "azurerm_mssql_server": 1,
+                    "azurerm_resource_group": 1
+                }
+            }
+        }
+    ],
+    "totalHourlyCost": "0.000157534246575339",
+    "totalMonthlyCost": "0.115",
+    "pastTotalHourlyCost": "0.000157534246575339",
+    "pastTotalMonthlyCost": "0.115",
+    "diffTotalHourlyCost": "0",
+    "diffTotalMonthlyCost": "0",
+    "timeGenerated": "2023-06-04T03:51:02.5295854Z",
+    "summary": {
+        "totalDetectedResources": 3,
+        "totalSupportedResources": 1,
+        "totalUnsupportedResources": 0,
+        "totalUsageBasedResources": 1,
+        "totalNoPriceResources": 2,
+        "unsupportedResourceCounts": {},
+        "noPriceResourceCounts": {
+            "azurerm_mssql_server": 1,
+            "azurerm_resource_group": 1
+        }
+    }
+}
