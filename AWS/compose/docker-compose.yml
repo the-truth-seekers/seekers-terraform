@@ -1,0 +1,44 @@
+version: "3"
+
+services:
+  front:
+    depends_on:
+      - back
+    image: tccgrupo14/seekers-front:latest
+    ports:
+      - 8080:80
+    deploy:
+      replicas: 3
+      restart_policy:
+        condition: any
+
+  back:
+    image: tccgrupo14/seekers-back:latest
+    ports:
+      - 9000:8000
+    environment:
+      - DB_NAME=grupo14
+      - DB_USER=grupo14
+      - DB_HOST=grupo14.database.windows.net
+      - DB_PASSWORD=seekers@urubu123
+    deploy:
+      replicas: 4
+      restart_policy:
+        condition: any
+
+  scrapper:
+    image: tccgrupo14/seekers-scraper:latest
+    volumes:
+      - /home/ubuntu/.aws/:/root/.aws/
+      - /home/ubuntu/scraper/out/log:/app/out/log
+    environment:
+      - DATABASE_NAME=grupo14
+      - DB_USERNAME=grupo14
+      - DB_PASSWORD=seekers@urubu123
+      - DB_SERVER=grupo14.database.windows.net
+      - BUCKET_NAME=seekers-bucket
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: any
+        delay: 6h
