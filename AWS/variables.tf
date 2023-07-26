@@ -8,10 +8,6 @@ variable "AVAILABILITY_ZONE" {
 
 
 # Instâncias EC2
-variable "AMI_HASH" {
-  default = "ami-0557a15b87f6559cf"
-}
-
 variable "KEY_NAME" {
   default = "seekers-tf"
 }
@@ -21,7 +17,7 @@ variable "INSTANCE_TYPE_MICRO" {
 }
 
 variable "INSTANCE_TYPE_LARGE" {
-  default = "t2.large"
+  default = "t3.large"
 }
 
 
