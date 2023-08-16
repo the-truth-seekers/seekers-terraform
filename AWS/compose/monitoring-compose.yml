@@ -43,6 +43,9 @@ services:
         reservations:
           cpus: '0.15'
           memory: 128M
+      placement:
+        constraints:
+          - node.role == worker
 
   influxdb:
     image: influxdb:1.8
@@ -58,6 +61,9 @@ services:
         reservations:
           cpus: '0.30'
           memory: 128M
+      placement:
+        constraints:
+          - node.role == worker
 
   agent:
     image: swarmpit/agent:latest
