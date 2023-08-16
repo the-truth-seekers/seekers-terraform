@@ -11,7 +11,11 @@ data "aws_ami" "ami_ubuntu" {
     name   = "virtualization-type"
     values = ["hvm"]
   }
+}
 
+variable "AMI_SEERKERS" {
+  default = "ami-07fb8e747b0d1b3f4"
+  description = "Imagem ubuntu com docker instalado"
 }
 
 module "ec2_project1" {
@@ -19,7 +23,7 @@ module "ec2_project1" {
   version = "~> 5.1.0"
 
   name          = "cluster-manager-01"
-  ami           = data.aws_ami.ami_ubuntu.id
+  ami           = var.AMI_SEERKERS
   key_name      = var.KEY_NAME
   instance_type = var.INSTANCE_TYPE_LARGE
   subnet_id     = element(module.vpc_project.public_subnets, 0)
@@ -32,10 +36,10 @@ module "ec2_project1" {
     module.sg_docker_swarm.security_group_id,
     module.vpc_project.default_security_group_id
   ]
-  
+
   tags = {
     "ClusterNodeType" = "manager",
-    "NumberNodeType" = 01
+    "NumberNodeType"  = 01
   }
 }
 
@@ -54,7 +58,7 @@ module "ec2_project2" {
 
   depends_on    = [module.ec2_project1]
   name          = "cluster-worker-01"
-  ami           = data.aws_ami.ami_ubuntu.id
+  ami           = var.AMI_SEERKERS
   key_name      = var.KEY_NAME
   instance_type = var.INSTANCE_TYPE_LARGE
   subnet_id     = element(module.vpc_project.public_subnets, 0)
@@ -67,10 +71,10 @@ module "ec2_project2" {
     module.sg_docker_swarm.security_group_id,
     module.vpc_project.default_security_group_id
   ]
-  
+
   tags = {
     "ClusterNodeType" = "worker",
-    "NumberNodeType" = 01
+    "NumberNodeType"  = 01
   }
 }
 
@@ -89,7 +93,7 @@ module "ec2_project3" {
 
   depends_on    = [module.ec2_project2]
   name          = "cluster-worker-02"
-  ami           = data.aws_ami.ami_ubuntu.id
+  ami           = var.AMI_SEERKERS
   key_name      = var.KEY_NAME
   instance_type = var.INSTANCE_TYPE_LARGE
   subnet_id     = element(module.vpc_project.public_subnets, 0)
@@ -105,7 +109,7 @@ module "ec2_project3" {
 
   tags = {
     "ClusterNodeType" = "worker",
-    "NumberNodeType" = 02
+    "NumberNodeType"  = 02
   }
 }
 

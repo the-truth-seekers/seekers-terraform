@@ -1,0 +1,1 @@
+docker run -d --rm --name sk-scraper -v /home/ubuntu/scraper/log/:/app/out/log/ -v /home/ubuntu/.aws/credentials:/root/.aws/credentials -e DATABASE_NAME=grupo14 -e DB_USERNAME=grupo14 -e DB_PASSWORD=seekers@urubu123 -e DB_SERVER=grupo14.database.windows.net -e BUCKET_NAME=seekers-bucket tccgrupo14/seekers-scraper:latest

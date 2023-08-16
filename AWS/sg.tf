@@ -48,6 +48,13 @@ module "sg_custom" {
 
   ingress_with_cidr_blocks = [
     {
+      from_port   = 888
+      to_port     = 888
+      protocol    = "tcp"
+      description = "Custom Port 888"
+      cidr_blocks = "0.0.0.0/0"
+    },
+    {
       from_port   = 8000
       to_port     = 8000
       protocol    = "tcp"
