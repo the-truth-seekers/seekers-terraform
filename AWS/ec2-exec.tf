@@ -4,12 +4,12 @@ resource "null_resource" "instance1" {
   connection {
     type        = "ssh"
     user        = "ubuntu"
-    private_key = file(format("C:/git/seekers-terraform/chaves/54079/%s.pem", var.KEY_NAME))
+    private_key = file(format("C:/git/seekers-terraform/chaves/41732/%s.pem", var.KEY_NAME))
     host        = aws_eip.eip1.public_ip
   }
 
   provisioner "file" {
-    source      = "C:/git/seekers-terraform/chaves/54079/seekers-tf.pem"
+    source      = "C:/git/seekers-terraform/chaves/41732/seekers-tf.pem"
     destination = "/home/ubuntu/seekers-tf.pem"
   }
 
@@ -33,6 +33,16 @@ resource "null_resource" "instance1" {
     destination = "/home/ubuntu/start_scraper.sh"
   }
 
+  provisioner "file" {
+    source      = "C:/git/seekers-terraform/AWS/scripts/daemon.json"
+    destination = "/home/ubuntu/daemon.json"
+  }
+
+  provisioner "file" {
+    source      = "C:/git/seekers-terraform/AWS/scripts/crontab-scripts.sh"
+    destination = "/home/ubuntu/crontab-scripts.sh"
+  }
+
   provisioner "local-exec" {
     command     = "Start-Sleep -Seconds 10"
     interpreter = ["PowerShell", "-Command"]
@@ -40,6 +50,12 @@ resource "null_resource" "instance1" {
 
   provisioner "remote-exec" {
     inline = [
+      "sudo mv /home/ubuntu/crontab-scripts.sh /etc/cron.d/crontab-scripts.sh",
+      "sudo systemctl restart cron",
+      "sleep 20s",
+      "sudo mv /home/ubuntu/daemon.json /etc/docker/daemon.json",
+      "sudo systemctl restart docker",
+      "sleep 20s",
       "mkdir -p /home/ubuntu/.aws",
       "sudo docker swarm init --advertise-addr ${module.ec2_project1.private_ip}",
       "sudo docker swarm join-token -q worker > /home/ubuntu/swarm_wkr_token"
@@ -63,7 +79,8 @@ resource "null_resource" "instance1" {
       "scp -o StrictHostKeyChecking=no -i /home/ubuntu/seekers-tf.pem /home/ubuntu/swarm_wkr_token ubuntu@${aws_eip.eip3.public_ip}:/home/ubuntu/swarm_token",
       "sudo rm -rf /home/ubuntu/seekers-tf.pem",
       "docker stack deploy -c /home/ubuntu/monitoring-compose.yml swarmpit",
-      "echo x"
+      "sleep 5s",
+      "docker stack deploy -c /home/ubuntu/docker-compose.yml seekers"
     ]
   }
 }
@@ -74,7 +91,7 @@ resource "null_resource" "instance2" {
   connection {
     type        = "ssh"
     user        = "ubuntu"
-    private_key = file(format("C:/git/seekers-terraform/chaves/54079/%s.pem", var.KEY_NAME))
+    private_key = file(format("C:/git/seekers-terraform/chaves/41732/%s.pem", var.KEY_NAME))
     host        = aws_eip.eip2.public_ip
   }
 
@@ -82,9 +99,17 @@ resource "null_resource" "instance2" {
     command     = "Start-Sleep -Seconds 10"
     interpreter = ["PowerShell", "-Command"]
   }
+
+  provisioner "file" {
+    source      = "C:/git/seekers-terraform/AWS/scripts/daemon.json"
+    destination = "/home/ubuntu/daemon.json"
+  }
+
   provisioner "remote-exec" {
     inline = [
-      "echo x",
+      "sudo mv /home/ubuntu/daemon.json /etc/docker/daemon.json",
+      "sudo systemctl restart docker",
+      "sleep 20s",
       "sudo docker swarm join --token $(cat /home/ubuntu/swarm_token) ${module.ec2_project1.private_ip}:2377"
     ]
   }
@@ -96,7 +121,7 @@ resource "null_resource" "instance3" {
   connection {
     type        = "ssh"
     user        = "ubuntu"
-    private_key = file(format("C:/git/seekers-terraform/chaves/54079/%s.pem", var.KEY_NAME))
+    private_key = file(format("C:/git/seekers-terraform/chaves/41732/%s.pem", var.KEY_NAME))
     host        = aws_eip.eip3.public_ip
   }
 
@@ -105,9 +130,16 @@ resource "null_resource" "instance3" {
     interpreter = ["PowerShell", "-Command"]
   }
 
+  provisioner "file" {
+    source      = "C:/git/seekers-terraform/AWS/scripts/daemon.json"
+    destination = "/home/ubuntu/daemon.json"
+  }
+
   provisioner "remote-exec" {
     inline = [
-      "echo x",
+      "sudo mv /home/ubuntu/daemon.json /etc/docker/daemon.json",
+      "sudo systemctl restart docker",
+      "sleep 20s",
       "sudo docker swarm join --token $(cat /home/ubuntu/swarm_token) ${module.ec2_project1.private_ip}:2377"
     ]
   }

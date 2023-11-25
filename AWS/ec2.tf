@@ -14,7 +14,7 @@ data "aws_ami" "ami_ubuntu" {
 }
 
 variable "AMI_SEERKERS" {
-  default = "ami-07fb8e747b0d1b3f4"
+  default     = "ami-012d1d3215b6853d7"
   description = "Imagem ubuntu com docker instalado"
 }
 
@@ -35,6 +35,14 @@ module "ec2_project1" {
     module.sg_http_8080.security_group_id,
     module.sg_docker_swarm.security_group_id,
     module.vpc_project.default_security_group_id
+  ]
+
+  ebs_block_device = [
+    {
+      device_name = "/dev/sda1"
+      volume_size = 20
+      volume_type = "gp2"
+    }
   ]
 
   tags = {
@@ -72,6 +80,14 @@ module "ec2_project2" {
     module.vpc_project.default_security_group_id
   ]
 
+  ebs_block_device = [
+    {
+      device_name = "/dev/sda1"
+      volume_size = 20
+      volume_type = "gp2"
+    }
+  ]
+
   tags = {
     "ClusterNodeType" = "worker",
     "NumberNodeType"  = 01
@@ -105,6 +121,14 @@ module "ec2_project3" {
     module.sg_http_8080.security_group_id,
     module.sg_docker_swarm.security_group_id,
     module.vpc_project.default_security_group_id
+  ]
+
+  ebs_block_device = [
+    {
+      device_name = "/dev/sda1"
+      volume_size = 20
+      volume_type = "gp2"
+    }
   ]
 
   tags = {

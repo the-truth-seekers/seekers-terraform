@@ -6,11 +6,11 @@ services:
       - back
     image: tccgrupo14/seekers-front:latest
     ports:
-      - 8080:80
+      - 80:80
     networks:
       - sknet
     deploy:
-      replicas: 3
+      replicas: 2
       placement:
         constraints:
           - node.role == worker
@@ -18,7 +18,7 @@ services:
         condition: any
 
   back:
-    image: tccgrupo14/seekers-back:aa52f53285329bfcd424c015fde629f3a7de9aa4
+    image: tccgrupo14/seekers-back:latest
     ports:
       - 9000:8000
     networks:
@@ -29,14 +29,16 @@ services:
       - DB_HOST=grupo14.database.windows.net
       - DB_PASSWORD=seekers@urubu123
     deploy:
-      replicas: 6
+      replicas: 2
       placement:
         constraints:
           - node.role == worker
       restart_policy:
         condition: any
 
+
 networks:
   sknet:
     driver: overlay
-    attachable: true
+
+

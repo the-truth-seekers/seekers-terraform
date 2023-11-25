@@ -44,7 +44,7 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_AMI_SEERKERS"></a> [AMI\_SEERKERS](#input\_AMI\_SEERKERS) | Imagem ubuntu com docker instalado | `string` | `"ami-07fb8e747b0d1b3f4"` | no |
+| <a name="input_AMI_SEERKERS"></a> [AMI\_SEERKERS](#input\_AMI\_SEERKERS) | Imagem ubuntu com docker instalado | `string` | `"ami-012d1d3215b6853d7"` | no |
 | <a name="input_AVAILABILITY_ZONE"></a> [AVAILABILITY\_ZONE](#input\_AVAILABILITY\_ZONE) | n/a | `string` | `"us-east-1a"` | no |
 | <a name="input_BUCKET_NAME"></a> [BUCKET\_NAME](#input\_BUCKET\_NAME) | Nome do bucket | `string` | `"seekers-bucket"` | no |
 | <a name="input_DNS_HOSTNAMES"></a> [DNS\_HOSTNAMES](#input\_DNS\_HOSTNAMES) | n/a | `bool` | `true` | no |

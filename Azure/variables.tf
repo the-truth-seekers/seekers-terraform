@@ -17,7 +17,7 @@ variable "AZURE_SERVER_DATABASE_USER" {
   # default     = "Urubu100"
   type        = string
   sensitive   = true
-  description = "Senha para o servidor do banco de dados"
+  description = "Usuário para o servidor do banco de dados"
 }
 
 variable "AZURE_SERVER_DATABASE_PASSWORD" {
