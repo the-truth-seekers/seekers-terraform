@@ -10,7 +10,7 @@ services:
     networks:
       - sknet
     deploy:
-      replicas: 2
+      replicas: 3
       placement:
         constraints:
           - node.role == worker
@@ -29,7 +29,7 @@ services:
       - DB_HOST=grupo14.database.windows.net
       - DB_PASSWORD=seekers@urubu123
     deploy:
-      replicas: 2
+      replicas: 6
       placement:
         constraints:
           - node.role == worker
